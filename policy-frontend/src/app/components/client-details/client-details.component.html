@@ -1,0 +1,103 @@
+<div>
+  <div *ngIf="currentClient.clientId" class="edit-form">
+    <h3><u>Client-{{currentClient.clientId}}</u></h3>
+    <br>
+    <form>
+      <div class="form-group">
+        <label for="firstName"><strong>First Name: </strong></label>
+        <input
+          type="text"
+          class="form-control"
+          id="firstName"
+          [(ngModel)]="currentClient.firstName"
+          name="firstName"
+        />
+      </div>
+      <div class="form-group">
+        <label for="lastName"><strong>Last Name: </strong></label>
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          [(ngModel)]="currentClient.lastName"
+          name="lastName"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email"><strong>Email: </strong></label>
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          [(ngModel)]="currentClient.email"
+          name="email"
+        />
+      </div>
+      <div class="form-group">
+        <label for="age"><strong>Age: </strong></label>
+        <input
+          type="number"
+          class="form-control"
+          id="age"
+          [(ngModel)]="currentClient.age"
+          name="age"
+        />
+      </div>
+      <div class="form-group">
+        <label for="gender"><strong>Gender: </strong></label>
+        <input
+          type="text"
+          class="form-control"
+          id="gender"
+          [(ngModel)]="currentClient.gender"
+          name="gender"
+        />
+      </div>
+      <div class="form-group">
+        <label for="contactNo"><strong>Contact No.: </strong></label>
+        <input
+          type="number"
+          class="form-control"
+          id="contactNo"
+          [(ngModel)]="currentClient.contactNo"
+          name="contactNo"
+        />
+      </div>
+      <div class="form-group">
+        <label for="policyNo"><strong>Policy No.: </strong></label>
+        <input
+          type="text"
+          class="form-control"
+          id="policyNo"
+          [(ngModel)]="currentClient.policyNo"
+          name="policyNo"
+        />
+      </div><br/><br/>
+      <div class="form-group">
+        <label for="fileUpload"><strong>Upload Additional Documents</strong></label><br/>
+        <input
+          type="file"
+          id="fileUpload"
+        />
+      </div>
+    </form>
+
+    <button class="btn btn-danger m-3" (click)="deleteClient()" routerLink="/client">
+        Delete
+    </button>
+
+    <button
+      type="submit"
+      class="btn btn-success m-3"
+      (click)="updateClient()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentClient.clientId">
+    <br />
+    <p>Cannot access this Client...</p>
+  </div>
+</div>

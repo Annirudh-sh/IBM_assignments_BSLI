@@ -1,0 +1,95 @@
+<div xmlns="http://www.w3.org/1999/html">
+  <div class="submit-form">
+    <form class="was-validated">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <h3><u>Enter client details : </u></h3>
+        <br/>
+        <label for="firstName"><strong>First Name</strong></label>
+        <input
+          type="text"
+          class="form-control"
+          id="firstName"
+          required
+          [(ngModel)]="client.firstName"
+          name="firstName"
+        />
+        <div class="invalid-feedback">Please enter first name</div>
+      </div>
+      <div class="form-group">
+        <label for="lastName"><strong>Last Name</strong></label>
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          required
+          [(ngModel)]="client.lastName"
+          name="lastName"
+        />
+        <div class="invalid-feedback">Please enter last name</div>
+      </div>
+      <div class="form-group">
+        <label for="email"><strong>Email</strong></label>
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          required
+          [(ngModel)]="client.email"
+          name="email"
+        />
+        <div class="invalid-feedback">Please enter email</div>
+      </div>
+      <div class="form-group">
+        <label for="age"><strong>Age</strong></label>
+        <input
+          type="number"
+          class="form-control"
+          id="age"
+          required
+          [(ngModel)]="client.age"
+          name="age"
+        />
+        <div class="invalid-feedback">Please enter age</div>
+      </div>
+      <div class="form-group">
+        <label for="gender"><strong>Gender</strong></label>
+        <input
+          type="text"
+          class="form-control"
+          id="gender"
+          required
+          [(ngModel)]="client.gender"
+          name="gender"
+        />
+        <div class="invalid-feedback">Please enter gender</div>
+      </div>
+      <div class="form-group">
+        <label for="contactNo"><strong>Contact No.</strong></label>
+        <input
+          type="number"
+          class="form-control"
+          id="contactNo"
+          required
+          [(ngModel)]="client.contactNo"
+          name="contactNo"
+        />
+        <div class="invalid-feedback">Please enter Contact No.</div>
+      </div><br/>
+      <div class="form-group">
+        <label for="fileUpload"><strong>Upload Documents</strong></label><br/>
+        <input
+          (change)="selectFile($event)"
+          type="file"
+          id="fileUpload"
+        />
+      </div>
+      <button (click)="saveClint()" class="btn btn-success m-3">Submit</button>
+    </div>
+    <div *ngIf="submitted">
+      <h4>Client was added successfully !</h4>
+      <button class="btn btn-success" (click)="newClient()">Add</button>
+    </div>
+    </form>
+  </div>
+</div>

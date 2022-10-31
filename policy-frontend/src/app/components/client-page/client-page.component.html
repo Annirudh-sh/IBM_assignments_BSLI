@@ -1,0 +1,38 @@
+<div class="list row">
+
+  <div class="col-md-6">
+    <h4>Client List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let client of clients; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveClient(client, i)"
+      >
+        {{ client.firstName }}
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentClient">
+      <h4>Clients</h4>
+      <div>
+        <label><strong>First Name: </strong></label> {{ currentClient.firstName }}
+      </div>
+      <div>
+        <label><strong>Last Name: </strong></label> {{ currentClient.lastName }}
+      </div>
+      <div>
+        <label><strong>Email: </strong></label> {{ currentClient.email }}
+      </div>
+      <div>
+        <button type="button" class="btn btn-info">
+          <a class="badge" routerLink="/client/{{ currentClient.clientId }}">
+            View
+          </a>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
